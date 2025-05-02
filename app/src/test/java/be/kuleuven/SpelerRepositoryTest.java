@@ -1,5 +1,7 @@
 package be.kuleuven;
 
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -183,7 +185,7 @@ public abstract class SpelerRepositoryTest {
       ConnectionManager cm = new ConnectionManager(CONNECTIONSTRING_TO_TEST_DB, USER_OF_TEST_DB, PWD_OF_TEST_DB);
       Statement statement = (Statement) cm.getConnection().createStatement();
       var result = statement
-          .executeQuery("SELECT COUNT(*) as cnt FROM speler_speelt_tornooi WHERE speler = 1 and tornooi = 3;");
+              .executeQuery("SELECT COUNT(*) as cnt FROM speler_speelt_tornooi WHERE speler = 1 and tornooi = 3;");
       while (result.next()) {
         assertThat(result.getInt("cnt")).isEqualTo(1);
       }
@@ -209,7 +211,7 @@ public abstract class SpelerRepositoryTest {
       ConnectionManager cm = new ConnectionManager(CONNECTIONSTRING_TO_TEST_DB, USER_OF_TEST_DB, PWD_OF_TEST_DB);
       Statement statement = (Statement) cm.getConnection().createStatement();
       var result = statement
-          .executeQuery("SELECT COUNT(*) as cnt FROM speler_speelt_tornooi WHERE speler = 1 and tornooi = 3;");
+              .executeQuery("SELECT COUNT(*) as cnt FROM speler_speelt_tornooi WHERE speler = 1 and tornooi = 3;");
       while (result.next()) {
         assertThat(result.getInt("cnt")).isEqualTo(0);
       }

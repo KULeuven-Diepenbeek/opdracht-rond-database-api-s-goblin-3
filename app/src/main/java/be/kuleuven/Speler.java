@@ -1,10 +1,19 @@
 package be.kuleuven;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.ArrayList;
 
+@Entity
+@Table
 public class Speler {
+  @Id
   private int tennisvlaanderenId;
+  @Column(nullable = false)
   private String naam;
+  @Column(nullable = false)
   private int punten;
   // For relations
   private ArrayList<Wedstrijd> wedstrijden;
@@ -106,5 +115,9 @@ public class Speler {
 
   public void deleteTornooi(int tornooiId) {
     tornooien.removeIf(tornooi -> tornooi.getId() == tornooiId);
+  }
+
+  public int getTennisvlaanderenId() {
+    return tennisvlaanderenId;
   }
 }
